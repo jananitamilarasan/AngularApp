@@ -1,0 +1,106 @@
+<html lang="en" ng-app="shoppingApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Angular App</title>
+    <link rel="stylesheet" href="app/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="app/css/style.css"/>
+    <link rel="stylesheet" href="app/css/toaster.css"/>
+    <link rel="stylesheet" href="app/css/autocomplete.css"/>
+    <link rel="stylesheet" href="app/css/angular-range-slider.css"/>
+
+    <!-- Included Js Scripts-->
+    <script src="lib/jquery.min.js"></script>
+    <script src="lib/angular.min.js"></script>
+    <script src="lib/angular-route.min.js"></script>
+    <script src="lib/angular-animate.js"></script>
+    <script src="lib/angular-resource.js"></script>
+    <script src="lib/angular-filter.min.js"></script>
+    <script src="lib/angular-range-slider.js"></script>
+    <script src="lib/angular-local-storage.js"></script>
+     <script src="lib/map-api.js"></script>
+     <script src="lib/ng-map.min.js"></script>
+
+    <script src="lib/bootstrap.min.js"></script>
+    <script src="lib/ui-bootstrap-tpls.js"></script>
+
+    <script src="lib/toaster.js"></script>
+    <script src="lib/autocomplete.js"></script>
+    <!--<script src="lib/lodash.js"></script> -->
+    <!--<script src="lib/angular-google-maps.js"></script> -->
+     <script src="lib/angular-google-places.js"></script>
+
+    <script src="app/js/services.js"></script>
+    <script src="app/js/directives.js"></script>
+    <script src="app/js/filters.js"></script>
+    <script src="app/js/factories.js"></script>
+    <script src="app/js/controllers.js"></script>
+  </head>
+
+  <body ng-controller="ApplicationCntrl">
+    <toaster-container toaster-options="{'position-class': 'toast-top-center'}"></toaster-container>
+   <!-- Header tag -->
+
+    <div class="header" > 
+      <ul class="nav nav-pills pull-right">
+        <li  class="mobile_cls">
+          <span class="glyphicon glyphicon glyphicon-log-in" aria-hidden="true"></span><a href="#/locator" active-link="active"> Map</a>
+        </li>      
+        <li>
+            <!-- Button trigger modal -->
+          <button type="button" class="cart-btn cart-btn-clr btn-large" data-toggle="modal" data-target="#cartLists" >
+            <i class="glyphicon glyphicon-shopping-cart shopping-cart-size"></i> Cart ({{carts.length > 0 ? carts.length : 0 }})
+          </button>
+        </li>
+        <li class="mobile_cls">
+          <span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
+          <a href="#/mobiles" active-link="active"> Mobiles</a> 
+        </li>
+        <li  ng-hide="current_user" class="mobile_cls">
+          <span class="glyphicon glyphicon glyphicon-log-in" aria-hidden="true"></span><a href="#/login" active-link="active"> Login</a>
+        </li>
+        <li  ng-show ="current_user" class="logged_usr"> 
+          <span class="current_user"> Welcome: {{current_user | capitalize }} </span>
+          <button type="button" class="btn btn-default" aria-label="Left Align">
+            <span class="glyphicon glyphicon-off" aria-hidden="true" ng-click="exit()"></span>
+          </button>
+        </li>
+      </ul>
+      <h3 class="text-muted">Angular App</h3> 
+    </div>
+    <carousel interval="myInterval">
+      <slide ng-repeat="slide in slides" active="slide.active">
+        <img ng-src="{{slide.image}}">
+        <div class="carousel-caption">
+          <h4>Slide {{$index+1}}</h4>
+        </div>
+      </slide>
+    </carousel>
+    <div ng-include src="'app/template/carts.html'"></div>
+    {{details}}
+    <!-- Container -->
+    <div class="container" ng-view></div>
+    <!-- Footer -->
+    <div class="footer">
+      <p>&copy; POC 2014</p>
+    </div>
+  </body>
+</html>
+<style type="text/css">
+    html, body, #map_canvas {
+        height: 100%;
+        width: 100%;
+        margin: 0px;
+    }
+
+    #map_canvas {
+        position: relative;
+    }
+
+    .angular-google-map-container {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+    }
+</style>

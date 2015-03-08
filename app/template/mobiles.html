@@ -1,0 +1,83 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-3 refine_by">
+      <autocomplete ng-model="useName.Name" data="namesGroup" attr-placeholder="Search By Name.."></autocomplete>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h2 class="panel-title">Filter by Brand</h2>
+        </div>
+        <div class="panel-body">
+         <p ng-repeat="brands in brandsGroup">
+            <label><input type="checkbox" ng-model="useBrands[brands]"/>{{brands }} ({{count(brands)}})</label>
+         </p>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h2 class="panel-title">Filter by Price</h2>
+          
+        </div>
+        <div range-slider min="minPrice" max="maxPrice" model-min="usePrice.lower_bound" model-max="usePrice.upper_bound" step="5" ></div>
+      </div>
+      <div class="reset_box">
+        <a href="" ng-click="resetFilters()">Reset Filters</a>
+      </div>
+    </div>
+    
+    <div class="col-xs-9" >
+     <div id="display_slider" >
+        <carousel interval="myInterval">
+
+          <slide ng-repeat="mobile in mobiles" active="mobile.active" ng-if="$index < 5">
+            <img ng-src="{{mobile.Image}}" class="slider_image">
+            <div class="carousel-caption">
+              <p>{{ mobile.Name | uppercase}} </p>
+              <p class="bold_txt">JUST Rs. {{ mobile.Price}} </p>
+              <p class="bold_txt">{{ mobile.Discount ? "WITH EXTRA  " + mobile.Discount + "% OFF" : ""}}</p>
+            </div>
+          </slide>
+          <div slider config="sliderConfig" model="price" class="cdbl-slider"></div>
+       </carousel>
+     </div>
+    <div ng-if="totalItems>0">
+      <pagination page="currentPage" max-size="noOfPages" total-items="totalItems" items-per-page="entryLimit" ></pagination>
+      <div ng-repeat="mobile in filteredMobiles  |  filter:filter_by() | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit track by $index" class="mobile_lists" > 
+      
+        <div class="col-md-3 mobile_col" ng-click='toggleModal()'>
+          <a href="#">
+            <img src="{{mobile.Image}}" alt="Smiley face" height="140" width="140">
+          </a>
+          <h2> 
+            <a href="#" alt= "{{mobile.Name}}" >{{mobile.Name | capitalize}}</a>
+          </h2>
+          <div  ng-class="{circle: mobile.Discount}">
+            <span class="innerTEXT">{{mobile["Discount"] ? mobile["Discount"] + " %" : ''}} </span>
+          </div>
+          <h3 ><span>Rs. {{current_price(mobile)}}</span></h3>
+          <div class="discounts">
+            <h4 ><span>{{mobile.Discount ? "MRP Rs. " + mobile.Price  : ''}} </span></h4>
+            <div ng-show=mobile.Stars  star-rating rating-value=mobile.Stars max=5 ></div> 
+          </div>  
+          
+          <div class="buttons" >
+            <add-cart-button mobile="mobile" diableby-default="cartsGroup.length > 0 ? cartsGroup.indexOf(mobile.Sno)!=-1 : false"></add-cart-button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div ng-if="!totalItems" class="empty_results">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h2 class="panel-title">We found no results for your search.</h2>
+        </div>
+      </div>
+      <div class="panel-body">
+        <h2> Search Tips </h2>
+        <ul>
+          <li class="search_tips">Make sure the word/words are spelled correctly</li>
+          <li class="search_tips" >Go back to <a href="" ng-click="resetFilters()">Homepage </a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

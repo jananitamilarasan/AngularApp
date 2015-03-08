@@ -1,0 +1,44 @@
+<!-- Modal -->
+<div class="modal fade" id="cartLists" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" ng-controller="cartCntrl">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="goMobiles()"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">YOUR SHOPPING CART</h4>
+      </div>
+      <div class="modal-body">  
+        <div ng-show="carts.length > 0">    
+        <table class="cartsTable">
+          <tr>
+            <th style="width: 13%;">Item</th>
+            <th style="width: 33%;"> Name</th>
+            <th style="width: 19%;"> Quantity</th>
+            <th style="width: 33%;"> Sub Total(Rs)</th>
+            <th >Remove</th>
+          </tr>
+          <tr ng-repeat="cart in carts">
+            <td style="padding: 14px 0px 18px 6px;"> <img ng-src="{{cart.Image}}" height="45" width="42">
+            </td>
+            <td>{{cart.Name}}</td>
+            <td>
+              <input type="text" ng-model="quantity" size="1" class="qtyTxt" valid-number ng-change="addQty(cart,quantity)" maxlength="1" />
+            </td>
+            <td>Rs.  {{ (quantity>0 ?  quantity : 1) * current_price(cart) | number:0 }}</td>
+            <td><a href="" ng-click="removeCart($index,cart)"> <i class="glyphicon glyphicon-remove-circle"></i> </a></td>
+          </tr>
+        </table>
+         <div class="totalPrice">
+           Total : Rs. {{total() | number:0}}           
+         </div>
+        </div>  
+        <div ng-show="carts.length <= 0" class="noCartsDiv">
+          <h4>There are no items in this cart.</h4>
+          <a class="btn btn-default noCarts" href="#/mobiles" role="button" ng-click="goMobiles()">Continue shopping</a>             
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="goMobiles()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

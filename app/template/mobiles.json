@@ -1,0 +1,114 @@
+ [
+  {
+    "Sno": "1",
+    "Name": "HTC Desire 620G dual sim",
+    "Brand" : "HTC",
+    "Image" : "app/images/htc-desire-620g.png",
+    "Price" : 31500,
+    "Discount": 29,
+    "Stars" : 3
+
+  },
+  {
+       "Sno": "2",
+    "Name": "HTC Desire 620 dual sim",
+    "Brand": "HTC",
+    "Image":"app/images/htc-desire-620.png",
+    "Price" : 20000,
+    "Discount" : 46,
+    "Stars" : 4
+  },
+  {
+    "Sno": "3",
+        "Name": "HTC One (M8 Eye)",
+        "Brand": "HTC",
+    "Image":"app/images/htc-one-m8.png",
+    "Price": 42470,
+    "Stars" : 5
+  },
+  {
+    "Sno": "4",
+        "Name": "Samsung Galaxy Core Prime",
+        "Brand": "Samsung",
+    "Image":"app/images/samsung-galaxy-core-prime.png",
+     "Price" : 15290,
+     "Stars" : 1
+  },
+  {
+    "Sno": "5",
+        "Name": "Samsung Galaxy A5 Duos",
+        "Brand": "Samsung",
+    "Image":"app/images/samsung-a5.png",
+    "Price" : 16690,
+    "Discount": 20
+  },
+  {
+    "Sno": "6",
+        "Name": "Samsung Galaxy V",
+        "Brand": "Samsung",
+    "Image":"app/images/samsung-galaxy-v1.png",
+    "Price" : 6000,
+    "Stars" : 2
+  },
+  {
+    "Sno": "7",
+        "Name": "Samsung Galaxy A3",
+        "Brand": "Samsung",
+    "Image":"app/images/samsung-a3.png",
+    "Price" : 21999,
+    "Stars" : 0  
+    },
+  {
+    "Sno": "8",
+        "Name": "Samsung Galaxy S5 Plus",
+        "Brand": "Samsung",
+    "Image":"app/images/samsung-galaxy-s5-g900f.png",
+    "Price" : 32290,
+    "Stars" : 4
+  },
+    {
+    "Sno": "9",
+        "Name": "Samsung Galaxy S5 Plus1",
+        "Brand": "Samsung",
+    "Image":"app/images/samsung-galaxy-s5-g900f.png",
+    "Price" : 32210,
+    "Stars" : 1
+  },
+    {
+    "Sno": "10",
+        "Name": "Samsung Galaxy S5 Plus2",
+        "Brand": "Samsung",
+    "Image":"app/images/samsung-galaxy-s5-g900f.jpg",
+    "Price" : 32220,
+    "Stars" : 5
+  },
+      {
+    "Sno": "11",
+    "Name": "Samsung Galaxy S51 Plus223",
+    "Brand": "Samsung",
+    "Image":"app/images/samsung-galaxy-s5-g900f.jpg",
+    "Price" : 42220,
+    "Stars" : 5
+  },
+    {
+    "Sno": "12",
+        "Name": "Samsung Galaxy S51 Plus222",
+        "Brand": "Samsung",
+    "Image":"app/images/samsung-galaxy-s5-g900f.jpg",
+    "Price" : 50000,
+    "Stars" : 4
+  },
+    {
+    "Sno": "13",
+    "Name": "HTC Desire 620G dual1 sim",
+    "Brand" : "HTC",
+    "Image" : "app/images/htc-desire-620g.png",
+    "Price" : 31500,
+    "Discount": 29,
+    "Stars" : 5
+
+  }
+  ]
+  
+
+

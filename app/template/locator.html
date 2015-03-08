@@ -1,0 +1,16 @@
+<!-- <google-places location=location></google-places>
+ --> 
+<!-- <input id="google_places_ac" name="google_places_ac" type="text" class="input-block-level"/>
+ <button ng-click="doSearch()" class="btn btn-large btn-primary">Search</button>
+{{places}}
+<div id="map_canvas" ng-show="location">
+    <ui-gmap-google-map center="location.center" zoom="location.zoom" options="options">
+       <ui-gmap-markers models="places" coords="'self'" icon="'icon'" idKey="'idKey'"></ui-gmap-markers>
+    </ui-gmap-google-map>
+</div> -->
+
+
+<map zoom="12" center="12.9141309000000,80.193085900000030000
+" on-center-changed="centerChanged()">
+  <marker position="12.9141309000000,80.193085900000030000" on-click="click()" title="Click to zoom"></marker> 
+</map>
